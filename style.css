@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 15px;
+
+    color: white;
+
+    background:
+        radial-gradient(circle at top, #402060, transparent 45%),
+        linear-gradient(135deg, #09051a, #171044, #250d38);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    position: relative;
+}
+
+/* BINTANG */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+
+    background-size: 90px 90px, 140px 140px;
+    background-position: 0 0, 45px 60px;
+
+    opacity: 0.35;
+
+    pointer-events: none;
+
+    animation: stars 60s linear infinite;
+}
+
+@keyframes stars {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-300px);
+    }
+}
+
+/* CONTAINER */
+
+.container {
+    width: 100%;
+    max-width: 520px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45);
+
+    position: relative;
+
+    z-index: 5;
+
+    margin: auto;
+}
+
+/* TAJUK */
+
+h1 {
+    font-size: 32px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 15px rgba(255, 150, 200, 0.6);
+}
+
+/* BUTTON */
+
+#openBtn {
+    border: none;
+
+    padding: 15px 35px;
+
+    border-radius: 50px;
+
+    background: #ff4d8d;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(255, 77, 141, 0.5);
+
+    transition: 0.3s;
+}
+
+#openBtn:hover {
+    transform: scale(1.06);
+
+    background: #ff2d75;
+
+    box-shadow:
+        0 0 30px rgba(255, 77, 141, 0.8);
+}
+
+/* SURAT */
+
+#letter {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.09);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 18px;
+
+    line-height: 1.8;
+}
+
+#letter h2 {
+    text-align: center;
+
+    margin-bottom: 18px;
+}
+
+#typing {
+    font-size: 16px;
+
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
+}
+
+/* SURAT TERSEMBUNYI */
+
+.hidden {
+    display: none;
+}
+
+/* SURAT MUNCUL */
+
+.show {
+    display: block;
+
+    animation: letterAppear 0.8s ease;
+}
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* HATI */
+
+.heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    color: #ff6f9f;
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    z-index: 3;
+
+    animation: heartFloat 5s linear forwards;
+}
+
+@keyframes heartFloat {
+
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+
+}
